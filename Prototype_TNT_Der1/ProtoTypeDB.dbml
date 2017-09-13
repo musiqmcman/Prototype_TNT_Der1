@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProtoDB" Class="ProtoTypeDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ProtoDB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ProtoDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[USER]" Member="USERs">
+    <Type Name="USER">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Company_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bank_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Account_Number" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="USER_Event" Member="Events" ThisKey="Id" OtherKey="Id" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Temp_GuestForm" Member="Temp_GuestForms">
+    <Type Name="Temp_GuestForm">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Credit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GuestDetail" Member="GuestDetails">
+    <Type Name="GuestDetail">
+      <Column Name="GuestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Credit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Passowrd" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Event_GuestDetail" Member="Event" ThisKey="EventID" OtherKey="EventID" Type="Event" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventImage" Member="EventImages">
+    <Type Name="EventImage">
+      <Column Name="Image_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ContentType" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EventID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Event_EventImage" Member="Event" ThisKey="EventID" OtherKey="EventID" Type="Event" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EventDes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Venue" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NUMGuest" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Event_Type" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Venue_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Venue_Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Venue_Layout" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Event_GuestDetail" Member="GuestDetails" ThisKey="EventID" OtherKey="EventID" Type="GuestDetail" />
+      <Association Name="Event_EventImage" Member="EventImages" ThisKey="EventID" OtherKey="EventID" Type="EventImage" />
+      <Association Name="USER_Event" Member="USER" ThisKey="Id" OtherKey="Id" Type="USER" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

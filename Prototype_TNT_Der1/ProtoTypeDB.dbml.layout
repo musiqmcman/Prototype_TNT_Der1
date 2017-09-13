@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="ProtoTypeDB">
+  <DataContextMoniker Name="/ProtoTypeDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="eef7267e-0286-4f47-a491-8260b62afd9f" absoluteBounds="0.75, 2.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ProtoTypeDBDataContext/USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e46e31c3-8114-4882-bd01-6a5ca6dc6b8d" absoluteBounds="0.765, 2.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb4bd61d-06a7-40de-8a23-c3c3f4153782" absoluteBounds="0.75, 6.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/ProtoTypeDBDataContext/Temp_GuestForm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b36f7e90-02d1-45ee-8550-1b65fc144331" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3c55f4fc-e627-449a-af07-edda535b4172" absoluteBounds="6.25, 3.625, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/ProtoTypeDBDataContext/GuestDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3eb7c45d-8134-4d9d-9622-7067fe8c4797" absoluteBounds="6.265, 4.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cdb58b65-7cf0-45dc-94a8-11deccac3444" absoluteBounds="6.25, 1.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ProtoTypeDBDataContext/EventImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed76f7fe-3bbe-4ca2-8ab4-0ae655bec4de" absoluteBounds="6.265, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23496075-fb6b-45db-9e49-dd372b7f5911" absoluteBounds="3.5, 2.125, 2, 2.9247054036458322">
+      <DataClassMoniker Name="/ProtoTypeDBDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ba90bff-8804-41ed-9ef6-66bc889f0b41" absoluteBounds="3.515, 2.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 4.33735270182292); (6.25 : 4.33735270182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProtoTypeDBDataContext/Event/Event_GuestDetail" />
+      <nodes>
+        <classShapeMoniker Id="23496075-fb6b-45db-9e49-dd372b7f5911" />
+        <classShapeMoniker Id="3c55f4fc-e627-449a-af07-edda535b4172" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.51044840494792); (6.25 : 2.51044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProtoTypeDBDataContext/Event/Event_EventImage" />
+      <nodes>
+        <classShapeMoniker Id="23496075-fb6b-45db-9e49-dd372b7f5911" />
+        <classShapeMoniker Id="cdb58b65-7cf0-45dc-94a8-11deccac3444" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.54890055338542); (3.5 : 3.54890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProtoTypeDBDataContext/USER/USER_Event" />
+      <nodes>
+        <classShapeMoniker Id="eef7267e-0286-4f47-a491-8260b62afd9f" />
+        <classShapeMoniker Id="23496075-fb6b-45db-9e49-dd372b7f5911" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
